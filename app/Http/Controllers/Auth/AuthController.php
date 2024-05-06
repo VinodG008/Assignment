@@ -85,19 +85,14 @@ class AuthController extends Controller
             'password' => Hash::make($request->password),
             
             ]);
-              return redirect("login")->with('successmessage','Great! You have Successfully Registered');
+              return redirect("login")->with('successmessage','You have Successfully Registered');
     }
 
  public function addemployee()
     {
     
-        $info=Session::get('emp_email');
-        $firminfo = DB::table('officeadmin')->where('email',$info)->get();
-
-        // load the view and pass the menuname
-        return \View::make('auth.addnewemployee')
-            ->with('cmpinfo', $firminfo);
-      
+        return \View::make('auth.addnewemployee');
+          
     }
     
     public function logout() {
